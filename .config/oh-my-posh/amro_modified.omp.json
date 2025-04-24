@@ -1,0 +1,119 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "#4DFFD0",
+                    "style": "plain",
+                    "template": "\ueb99 {{ .UserName }} en",
+                    "type": "session"
+                },
+                {
+                    "foreground": "#39CCFF",
+                    "properties": {
+                        "folder_separator_icon": "/",
+                        "style": "full"
+                    },
+                    "style": "plain",
+                    "template": " \uf07b {{ .Path }} ",
+                    "type": "path"
+                },
+                {
+                    "foreground": "#20E6C2",
+                    "powerline_symbol": "\ue0b0",
+                    "properties": {
+                        "fetch_stash_count": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "style": "plain",
+                    "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+                    "type": "git"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "time",
+                    "style": "plain",
+                    "foreground": "#5E81AC",
+                    "template": "\uf017 {{ .CurrentDate | date \"03:04:05 PM\" }} ",
+                    "properties": {
+                        "time_format": "03:04:05 PM"
+                    }
+                },
+                {
+                    "type": "node",
+                    "style": "plain",
+                    "foreground": "#8BC34A",
+                    "template": " \ue718 {{ .Full }} ",
+                    "properties": {
+                        "display_mode": "files"
+                    }
+                },
+                {
+                    "type": "bun",
+                    "style": "plain",
+                    "foreground": "#fbf0df",
+                    "template": "\ue76f {{ .Full }} ",
+                    "properties": {
+                        "display_mode": "files"
+                    }
+                },
+                {
+                    "background": "transparent",
+                    "foreground": "green",
+                    "background_templates": [
+                        "{{ if not (eq .Code 0) }}red{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true,
+                        "style": "round"
+                    },
+                    "invert_powerline": true,
+                    "leading_diamond": "\ue0b6",
+                    "trailing_diamond": "\ue0b4",
+                    "style": "diamond",
+                    "template": "{{ .FormattedMs }}",
+                    "type": "executiontime"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "status",
+                    "style": "plain",
+                    "foreground_templates": [
+                        "{{ if .Error }}#FF3333{{ else }}#4CFA81{{ end }}"
+                    ],
+                    "template": "{{ if .Error }}✘ {{ .Code }}{{ else }}✔ {{ end }} ",
+                    "properties": {
+                        "always_enabled": true
+                    }
+                },
+                {
+                    "foreground": "#FF6B6B",
+                    "style": "plain",
+                    "template": "\ue3bf ",
+                    "type": "root"
+                },
+                {
+                    "foreground": "#FF4E7A",
+                    "style": "plain",
+                    "template": "# ",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "version": 3
+}
